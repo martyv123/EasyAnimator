@@ -1,0 +1,52 @@
+Design critique:
+One of the critiques our group has is that the provider focused heavily on generics
+and uses of functional java which were interesting but confusing to parse though.
+Furthermore, the provider referred to their basic shapes as sprites. This was confusing until
+we asked for clarification, as the provider said that they meant sprites to be a generic
+representation of objects to be animated, not just shapes. This was a design choice they made so
+that if they needed to animate objects other than shapes, they would not have to redesign their
+model. However the assignment specifically was focused on 2D shapes, so we felt that the scope
+that they were intending for was too large and that the overhead was not worth it. Also, because
+they had abstracted out their basic shape properties, the result when having to determine what
+shape properties were in use had to handled by a large switch case. This was hard to read through
+and use. Additionally, the benefits of using generic types seemed negated and defeated by the
+use of concrete implementation requests for the generic types in the given EditView class.
+
+Implementation critique:
+The implementation of their controller was very thorough. The provider had broken up the specific
+needs of what they needed to implement into a controller into several interfaces. The
+SpawnableController in particular was a good design choice, as it would allow the controller to
+choose whatever view was required. Splitting these methods into several interfaces allowed for
+further clarity and would be better to use for different implementations if the controller required
+some but not all of the functionality required in this assignment. The implementation of the
+model was also very straightforward. One of the functions their model had specifically, was
+layering. Layering allowed for the user to tag shapes on to other shapes and see if another shape
+was overlaid on top of another shape. This functionality seemed to provide a good feature though
+since our model did not support it we were not able to support it.
+ The implementation of their view was well done in that it was not tightly coupled
+to any of their other implementations. We noticed that they kept a controller inside of their
+EditView class, and had a method to add a controller to their view. This also prevented against
+tight coupling by not forcing the view to have to instantiate its own controller.
+
+Documentation critique:
+The product was very well documented and we only had to communicate with our provider twice in
+order to ask for clarification. The provider provided us with both a markdown and html README, which
+was very easy to follow and informative as well. All of the interfaces as well as
+concrete view classes contained well written javadocs and explanations of their functions. Some
+of the documentation on more foreign concepts could have been better, like temporalVertices in the
+AnimatorSprite interface and what a Sprite was. However, this could be more indicative of our
+naivete and our provider's more advanced knowledge of domain specific programming.
+
+Design/Code limitations:
+We felt that the code could have been simplified more to be better suited to the task.
+As mentioned in the design critique, we saw the creation of the Sprite interface as unnecessary
+because the assignment was to focus solely on 2D shapes. We also saw the use of Streams which we
+felt were used well, but may not have been needed to achieve the necessary input/output. Another
+code limitation was the use of generics to declare types for their model and sprites. By specifying
+the type, the object is limited to only using that type. For example, if a user wanted to create a
+sprite using int values, then the sprite would be limited to int values for things related to
+its color, dimensions, and positional coordinates. This does not seem appropriate because
+dimensions could be conceivably doubles and positional coordinates ints in another implementation.
+As a further example, we were limited to using the types that they had specified in their
+EditorPanel. We were unable to define different types
+to be used as they had hardcoded their generic types into the class.

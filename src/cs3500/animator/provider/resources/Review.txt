@@ -1,0 +1,17 @@
+In terms of of design/implementation, we had inadvertently created a lot of tight coupling between
+our model and view classes. This resulted in a lot of back and forth between our customers where we
+needed to generalize our classes to interfaces. For example, our textual view relied heavily on
+concrete shape implementation classes knowing how to print their textual representation. We also
+wish that we had broken down our functionality into more specific interfaces and classes, as it was
+confusing to continuously go back and forth to figure out what we needed to update to maintain the
+functionality of our project. Another thing we wish we could have improved with our design and
+implementation was our shape interface. It was too tightly coupled with drawing, as it required the
+shapes knowing how to draw themselves. The shape interface basically acted as a hybrid between the
+model and the view, which led to complications as the complexity of the project increased.
+
+
+Our experience with our providers went very well. They responded in a timely manner to all of
+our questions about their interfaces and implementations. However, they had a lot of functionality
+that we did not expect and as a result spent a lot of time trying to adapt our model to achieve
+this functionality. Our providers were also very helpful explaining their complex concepts and
+features which made adapting a bit easier.
